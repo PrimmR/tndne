@@ -1,0 +1,14 @@
+[package]
+name = "tndne"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.70"
+
+[dependencies]
+eframe = "0.22.0"
+env_logger = "0.10"
+cli-clipboard = "0.4.0"
+rand = "0.8.5"
+strum = "0.25.0"
+strum_macros = "0.25"
+rust-ini = "0.19"
