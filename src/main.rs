@@ -15,6 +15,9 @@ fn main() -> Result<(), eframe::Error> {
         initial_window_size: Some(egui::vec2(320., 240.)),
         resizable: false,
         centered: true,
+        icon_data: Some(
+            eframe::IconData::try_from_png_bytes(include_bytes!("../Icon.png")).unwrap(),
+        ),
         ..Default::default()
     };
     eframe::run_native(
