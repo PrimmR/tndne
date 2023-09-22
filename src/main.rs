@@ -12,7 +12,7 @@ mod numbers;
 fn main() -> Result<(), eframe::Error> {
     env_logger::init(); // Log to stderr (if you run with `RUST_LOG=debug`).
     let options = eframe::NativeOptions {
-        initial_window_size: Some(egui::vec2(320., 240.)),
+        initial_window_size: Some(egui::vec2(320., 160.)),
         resizable: false,
         centered: true,
         icon_data: Some(
@@ -55,6 +55,7 @@ pub enum Location {
     TynesideDurhamSunderland,
     NI,
     Cardiff,
+    Random,
 }
 
 impl Location {
@@ -81,6 +82,7 @@ impl Location {
             Location::TynesideDurhamSunderland => String::from("Tyneside/Durham/Sunderland (0191)"),
             Location::NI => String::from("Northern Ireland (028)"),
             Location::Cardiff => String::from("Cardiff (029)"),
+            Location::Random => String::from("Random"),
         }
     }
 
@@ -106,6 +108,7 @@ impl Location {
             Location::TynesideDurhamSunderland => String::from("0191 498 0"),
             Location::NI => String::from("028 9649 6"),
             Location::Cardiff => String::from("029 2018 0"),
+            _ => String::new(),
         }
     }
 
@@ -131,6 +134,7 @@ impl Location {
             "Tyneside/Durham/Sunderland (0191)" => Ok(Location::TynesideDurhamSunderland),
             "Northern Ireland (028)" => Ok(Location::NI),
             "Cardiff (029)" => Ok(Location::Cardiff),
+            "Random" => Ok(Location::Random),
             _ => Err(()),
         }
     }
